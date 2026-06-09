@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>加我微信</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f5f6fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px 32px;
+      width: 360px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .wechat-id {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+    }
+    .wechat-id span {
+      font-size: 16px;
+      color: #15803d;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    .copy-btn {
+      background: #07c160;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 32px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .copy-btn:hover { background: #06ad56; }
+    .copy-btn:active { background: #059a4a; }
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-60px);
+      background: #1a1a1a;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: transform 0.3s ease;
+      z-index: 100;
+      pointer-events: none;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="bio">搜索下方微信号添加我</div>
+    <div class="wechat-id">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#15803d">
+        <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 3.12 5.895 2.584 1.738-.41 3.147-1.534 3.8-3.11.3-.774.88-3.516.236-4.976-.667-1.11-1.2-2.423-2.87-2.504zm-2.663 3.12c-.408.616-1.028 1.14-1.708 1.533-.244.14-.49.263-.736.375.045-.351.1-.712.1-1.073 0-.276-.018-.543-.048-.805.7-.037 1.449-.145 2.392-.03zm-5.43.063c-.064-.007-.126-.017-.19-.017-.96.002-1.854.4-2.613 1.003-.154.123-.28.28-.427.414.13-.493.23-.987.29-1.4h2.94z"/>
+      </svg>
+      <span id="wechatId">stcm007</span>
+    </div>
+    <button class="copy-btn" onclick="copyWechatId()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+      </svg>
+      复制微信号
+    </button>
+  </div>
+  <div class="toast" id="toast">已复制到剪贴板</div>
+  <script>
+    function copyWechatId() {
+      const id = document.getElementById('wechatId').textContent;
+      navigator.clipboard.writeText(id).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = id;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    }
+  </script>
+</body>
+</html>

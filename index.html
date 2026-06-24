@@ -1,111 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>加我微信</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: #f5f6fa;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 40px 32px;
-      width: 360px;
-      text-align: center;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    }
-    .wechat-id {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 8px;
-      padding: 10px 20px;
-      margin-bottom: 20px;
-    }
-    .wechat-id span {
-      font-size: 16px;
-      color: #15803d;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
-    .copy-btn {
-      background: #07c160;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 32px;
-      font-size: 15px;
-      cursor: pointer;
-      transition: background 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .copy-btn:hover { background: #06ad56; }
-    .copy-btn:active { background: #059a4a; }
-    .toast {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%) translateY(-60px);
-      background: #1a1a1a;
-      color: #fff;
-      padding: 10px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      transition: transform 0.3s ease;
-      z-index: 100;
-      pointer-events: none;
-    }
-    .toast.show { transform: translateX(-50%) translateY(0); }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="Token Connect 一对一客户服务，复制微信号 stcm007，添加微信获得专属服务。">
+  <title>Token Connect｜添加微信获取一对一服务</title>
+  <link rel="icon" href="assets/brand-icon.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="card">
-    <div class="bio">搜索下方微信号添加我</div>
-    <div class="wechat-id">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#15803d">
-        <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 3.12 5.895 2.584 1.738-.41 3.147-1.534 3.8-3.11.3-.774.88-3.516.236-4.976-.667-1.11-1.2-2.423-2.87-2.504zm-2.663 3.12c-.408.616-1.028 1.14-1.708 1.533-.244.14-.49.263-.736.375.045-.351.1-.712.1-1.073 0-.276-.018-.543-.048-.805.7-.037 1.449-.145 2.392-.03zm-5.43.063c-.064-.007-.126-.017-.19-.017-.96.002-1.854.4-2.613 1.003-.154.123-.28.28-.427.414.13-.493.23-.987.29-1.4h2.94z"/>
-      </svg>
-      <span id="wechatId">stcm007</span>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Token Connect 首页">
+      <img src="assets/brand-icon.jpg" alt="Token Connect">
+      <span>TOKEN CONNECT</span>
+    </a>
+    <span class="header-status"><i></i> 在线服务</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">ONE-TO-ONE SERVICE · 专属服务通道</p>
+        <h1>有问题，<br><span>微信上直接聊。</span></h1>
+        <p class="lead">添加我的微信，发送您的订单或问题，我会为您提供一对一协助。</p>
+
+        <div class="wechat-card">
+          <div class="wechat-label">
+            <span>我的微信号</span>
+            <span class="verified">本人微信</span>
+          </div>
+          <div class="wechat-id">
+            <strong id="wechatId">stcm007</strong>
+            <button class="icon-button" id="copySmall" type="button" aria-label="复制微信号">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-3M5 8h9a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2Z"/></svg>
+            </button>
+          </div>
+          <button class="primary-button" id="addWechat" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.4 4C4.9 4 2 6.5 2 9.5c0 1.7.9 3.2 2.4 4.2L3.8 16l2.6-1.3c.7.2 1.3.3 2 .3h.5a5.8 5.8 0 0 1-.2-1.5c0-3.4 3.2-6.2 7.1-6.2h.5C15.3 5.4 12.2 4 8.4 4Z"/><path d="M22 13.5c0-2.7-2.7-4.9-6.1-4.9s-6.1 2.2-6.1 4.9 2.7 4.9 6.1 4.9c.6 0 1.2-.1 1.8-.2l2.2 1.1-.5-1.9c1.6-.9 2.6-2.3 2.6-3.9Z"/></svg>
+            复制微信号并打开微信
+          </button>
+          <p class="tip">点击后微信号会自动复制，进入微信粘贴搜索即可</p>
+        </div>
+
+        <div class="trust-row" aria-label="服务特点">
+          <span><i>01</i> 本人对接</span>
+          <span><i>02</i> 一对一服务</span>
+          <span><i>03</i> 售后无忧</span>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-frame">
+          <img src="assets/hero-brand.jpg" alt="Token Connect 黑金品牌标志">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+        </div>
+        <p>DIALOGUE · TRUST · CONNECTION</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>© TOKEN CONNECT · 对话 · 信任 · 连接 · 服务</span>
+  </footer>
+
+  <div class="mobile-bar">
+    <div>
+      <span>微信号</span>
+      <strong>stcm007</strong>
     </div>
-    <button class="copy-btn" onclick="copyWechatId()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-      </svg>
-      复制微信号
-    </button>
+    <button id="mobileAdd" type="button">复制并打开微信</button>
   </div>
-  <div class="toast" id="toast">已复制到剪贴板</div>
-  <script>
-    function copyWechatId() {
-      const id = document.getElementById('wechatId').textContent;
-      navigator.clipboard.writeText(id).then(() => {
-        const toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-      }).catch(() => {
-        const ta = document.createElement('textarea');
-        ta.value = id;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        const toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-      });
-    }
-  </script>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <strong>微信号已复制</strong>
+    <span>正在尝试打开微信…</span>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
